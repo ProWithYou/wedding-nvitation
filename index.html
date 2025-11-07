@@ -1,50 +1,221 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>우리의 결혼식에 초대합니다 💍</title>
-  <style>
-    body {
-      font-family: 'Noto Serif KR', serif;
-      background-color: #fdfaf5;
-      color: #333;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    h1 {
-      color: #9c6b5c;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    hr {
-      width: 80px;
-      border: 0;
-      border-top: 2px solid #9c6b5c;
-      margin: 20px auto;
-    }
-    .info {
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    .names {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 30px 0;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>가을의 결혼식에 초대합니다 🍂</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Pretendard', 'Noto Serif KR', sans-serif;
+    background-color: #fffaf5;
+    color: #3e2f25;
+    line-height: 1.8;
+  }
+
+  /* 상단 히어로 */
+  .hero {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .hero h1 { font-size: 42px; margin: 0; }
+  .hero p { font-size: 20px; margin-top: 10px; }
+
+  /* 음악 버튼 */
+  .music-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+  }
+
+  .music-btn:hover { background-color: rgba(255,255,255,1); }
+
+  /* 디데이 */
+  .dday-box {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.3);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h2 {
+    color: #a46b42;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  /* 갤러리 */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* 안내 섹션 */
+  .info {
+    background-color: #f7efe7;
+    border-radius: 12px;
+    padding: 40px 20px;
+    margin-top: 60px;
+  }
+
+  /* 지도 버튼 */
+  .map-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .map-buttons a {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+  }
+  .tmap { background-color: #e85b3c; }
+  .naver { background-color: #2db400; }
+  .tmap:hover { background-color: #c74b31; }
+  .naver:hover { background-color: #259c00; }
+
+  /* 푸터 */
+  footer {
+    background-color: #a46b42;
+    color: #fffaf0;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+  }
+</style>
 </head>
 <body>
-  <h1>💒 결혼식에 초대합니다 💒</h1>
-  <hr>
-  <p class="info">
-    서로의 마음이 만나 <br> 한 길을 걷고자 합니다.
-  </p>
-  <div class="names">신랑 홍길동 · 신부 김하나</div>
-  <p class="info">
-    2025년 5월 24일 토요일 오후 2시<br>
-    서울 ○○웨딩홀 3층
-  </p>
-  <hr>
-  <p>소중한 분을 초대합니다.<br>오셔서 축복해주세요.</p>
+
+  <!-- 상단 -->
+  <div class="hero">
+    <h1>홍길동 ❤️ 김하나</h1>
+    <p>2025년 10월 18일 토요일 오후 1시 30분</p>
+    <p>서울 더하우스오브그레이스 웨딩홀</p>
+
+    <!-- 디데이 -->
+    <div class="dday-box" id="dday">D-0</div>
+
+    <!-- 음악 버튼 -->
+    <button class="music-btn" id="musicToggle" title="음악 재생/정지">🎵</button>
+  </div>
+
+  <!-- 인사 -->
+  <section>
+    <h2>가을 햇살 아래 우리의 시작</h2>
+    <p>
+      낙엽이 물드는 계절,<br>
+      서로의 마음이 하나 되어<br>
+      함께 새로운 길을 걷고자 합니다.<br><br>
+      소중한 분을 초대합니다 🍁
+    </p>
+  </section>
+
+  <!-- 사진 -->
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80" alt="커플사진1">
+    <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=800&q=80" alt="커플사진2">
+    <img src="https://images.unsplash.com/photo-1549887534-3db1bd59dcca?auto=format&fit=crop&w=800&q=80" alt="커플사진3">
+  </section>
+
+  <!-- 안내 -->
+  <section class="info">
+    <h2>결혼식 안내</h2>
+    <p>
+      📅 2025년 10월 18일 (토) 오후 1시 30분<br>
+      📍 서울 더하우스오브그레이스 웨딩홀 3층
+    </p>
+
+    <div class="map-buttons">
+      <a href="https://tmap.co.kr/tmap2/mobile/route.do?target=서울%20더하우스오브그레이스%20웨딩홀" class="tmap" target="_blank">📍 T맵 길찾기</a>
+      <a href="https://map.naver.com/v5/search/더하우스오브그레이스%20웨딩홀" class="naver" target="_blank">🗺️ 네이버 지도</a>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>💛 우리의 특별한 날을 함께해주세요 💛</p>
+    <p>홍길동 · 김하나 드림</p>
+  </footer>
+
+  <!-- 배경음악 -->
+  <audio id="bgm" loop>
+    <source src="yourmusic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    /* 🎵 음악 재생 토글 */
+    const bgm = document.getElementById('bgm');
+    const musicToggle = document.getElementById('musicToggle');
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', () => {
+      if (isPlaying) {
+        bgm.pause();
+        isPlaying = false;
+        musicToggle.style.backgroundColor = "rgba(255,255,255,0.8)";
+        musicToggle.textContent = "🎵";
+      } else {
+        bgm.play();
+        isPlaying = true;
+        musicToggle.style.backgroundColor = "#ffd4a3";
+        musicToggle.textContent = "⏸️";
+      }
+    });
+
+    /* 📅 디데이 계산 */
+    const weddingDate = new Date("2025-10-18T13:30:00"); // 결혼식 날짜
+    const ddayBox = document.getElementById("dday");
+
+    function updateDday() {
+      const today = new Date();
+      const diffTime = weddingDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays > 0) {
+        ddayBox.textContent = `💍 D-${diffDays}`;
+      } else if (diffDays === 0) {
+        ddayBox.textContent = "💐 오늘 결혼식입니다!";
+      } else {
+        ddayBox.textContent = "🎉 결혼을 축하합니다!";
+      }
+    }
+    updateDday();
+    setInterval(updateDday, 3600000); // 1시간마다 갱신
+  </script>
+
 </body>
 </html>
